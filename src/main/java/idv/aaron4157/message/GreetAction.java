@@ -1,4 +1,4 @@
-package idv.aaron4157.model;
+package idv.aaron4157.message;
 
 /**
  * 這個響應類別要做一個打招呼的動作，回傳稱呼
@@ -9,11 +9,17 @@ package idv.aaron4157.model;
 public class GreetAction {
 	private String name;
 	
-	public String execute() throws Exception{
+	public String execute() {
 		if(this.name.isEmpty()) return "error";
 		else return "success";
 	}
-
+	
+	public String forward() {	
+		this.name = "ADMIN";
+		return "success";		
+	}
+	
+	//透過setter/getter進入Struts valueStack
 	public String getName() {
 		return name;
 	}

@@ -3,11 +3,12 @@
 <html>
 <head>
 	<title>My 1st Maven project</title>
+	<!-- 動畫效果 -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$('h4').mouseenter(function(){
-				alert('並沒有hello servlet 而是在struts.xml註冊為hello的POJO');
+				alert('並沒有hello servlet 而是註冊為hello的POJO');
 			});							
 		});
 	</script>
@@ -21,5 +22,6 @@
 		<input type="text" name="name"/>
 		<input type="submit" value="Go greeting!"/>
 	</form>
+	
 </body>
 </html>

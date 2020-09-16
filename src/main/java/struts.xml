@@ -5,19 +5,26 @@
 
 <!-- 配置說明:產生日誌; 註冊"hello" action 調用類別GreetAction.class; 回覆結果調用 GreetView.jsp-->
 <struts>
-	<constant name="struts.devMode" value="true"/>
-	<package name="idv.aaron4157" namespace="/" extends="struts-default">
+<!-- 	<constant name="struts.devMode" value="true"/> -->
+	<package name="idv.aaron4157.message" namespace="/" extends="struts-default">
 	<!-- /root -->
 		<action name="root">
             <result>/index.jsp</result>
         </action>
-	<!-- /hello?name=? -->
-		<action name="hello" class="idv.aaron4157.model.GreetAction" method="execute">
+	<!-- /hello?name=xxx -->
+		<action name="hello" class="idv.aaron4157.message.GreetAction" method="execute">
 			<result name="success">/greetView.jsp</result>
 			<result name="error">/index.jsp</result>
 		</action>
-		<action name="msg" class="idv.aaron4157.controller.Messenger" method="heading">
-			<result name="success"></result>
+	<!-- /mercury -->
+		<action name="mercury" class="idv.aaron4157.message.MyAction">
+			<result name="success">/rendering.jsp</result>
+		</action>		
+	</package>
+	
+	<package name="idv.aaron4157.actiontags" extends="struts-default">
+		<action name="msg" class="idv.aaron4157.message.MyAction">
+			<result name="success">/rendering.jsp</result>
 		</action>
 	</package>
 	

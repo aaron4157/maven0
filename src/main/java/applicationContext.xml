@@ -6,11 +6,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 	<!-- Spring 框架 在這裡實現為一個bean工廠 -->
 	<!-- A部屬一個domain 存放訊息 有需要在這裡切換對應-->
-	<bean id="msg" class="idv.aaron4157.model.CHTMsgDomain">
+	<bean id="message" class="idv.aaron4157.message.CHTMsgDomain">
 		<property name="message1" value="null"/>
 	</bean>
 	<!-- B1部署一個domain 給DAO操作 -->
-	<bean id="cust" class="idv.aaron4157.model.CustomerDomain"></bean>
+	<bean id="cust" class="idv.aaron4157.database.CustomerDomain"></bean>
 	<!-- B2部署DataSource物件on SQL server -->
 	<bean id="datasrc" class="com.microsoft.sqlserver.jdbc.SQLServerDataSource">
 		<!-- Property Injection 分欄寫 一行寫完也是可以 -->

@@ -1,4 +1,4 @@
-package idv.aaron4157.controller;
+package idv.aaron4157.message;
 
 import java.io.IOException;
 

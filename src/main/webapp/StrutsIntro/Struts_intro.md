@@ -1,7 +1,7 @@
 # Strust Introduction
 ## Strust framework 繼承標準的MVC框架，加以延伸:
 * 前端透過struts.xml 呼叫Model進行動作
-* Model部分使用POJO類別，負責商業邏輯處理
+* Model(細分為domain與Action)為POJO類別，負責商業邏輯(BI)處理
 * View使用jsp頁面, 由controller調用
 * Controller由strust.xml負責聯繫Model與派送View
 * 這個框架由DD file註冊的Dispatcher Filter實現

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package idv.aaron4157.model;
+package idv.aaron4157.database;
 
 /**
  * @author aaron
