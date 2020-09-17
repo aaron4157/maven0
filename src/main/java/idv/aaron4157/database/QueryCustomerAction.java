@@ -14,16 +14,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;  
 
 /**
+ * 1真實路徑：action在src底下
+ * 2真實路徑：views在webapp/spring底下 網址路徑是/spring/xxViews.jsp 
  * @author aaron
  *
  */
-/*
- * @Namespace("/app/v1")
- * 
- * @ResultPath("/app/v1")
- */
-public class QueryCustomerAction {
 
+@Namespace("/spring")  
+@ResultPath("/spring") 
+public class QueryCustomerAction {
 	/**
 	 * 實作後為一種DAO， 將string映射到bean 是ORM的核心部分
 	 * 這裡不用宣告 JdbcTemplate物件變數
@@ -35,13 +34,12 @@ public class QueryCustomerAction {
 	
 	private CustomerDomain cust;
 	
-	/*
-	 * @Action("testConnection", Results= {
-	 * 
-	 * })
-	 */
+	//spring/querycustomer
+	  @Action(value="querycustomer", results= {
+			  @Result(name="success", location="CustimerView.jsp")
+	  }) 
 	public String execute() {
-		//預設方法
+		
 		return "success";
 	}
 

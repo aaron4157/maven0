@@ -27,10 +27,11 @@
       <scope>test</scope>
     </dependency>
     <!-- 加上這幾段 -->
+    <!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-convention-plugin -->
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-convention-plugin</artifactId>
-      <version>2.2.1</version>
+      <version>2.5.22</version>
     </dependency>        
     <dependency>
       <groupId>org.springframework</groupId>
@@ -58,16 +59,16 @@
       <version>4.1.0.RELEASE</version>
     </dependency>
 	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-	<dependency>
-	    <groupId>org.apache.logging.log4j</groupId>
-	    <artifactId>log4j-core</artifactId>
-	    <version>2.0.2</version>
-	</dependency>
 
 	<dependency>
 		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-core</artifactId>
+		<version>2.13.3</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
 		<artifactId>log4j-api</artifactId>
-		<version>2.0.2</version>
+		<version>2.13.3</version>
 	</dependency>
   </dependencies>
 
@@ -85,8 +86,13 @@
           <version>3.0.2</version>
         </plugin>
         <plugin>
+        	<groupId>org.apache.maven.plugins</groupId>        	
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
+          <!-- <version>3.8.0</version>  -->
+          	<configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -103,6 +109,22 @@
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
+        </plugin>
+        <plugin>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.4.7.v20170914</version>
+            <configuration>
+                <webApp>
+                    <contextPath>/${build.finalName}</contextPath>
+                </webApp>
+                <stopKey>CTRL+C</stopKey>
+                <stopPort>8999</stopPort>
+                <scanIntervalSeconds>10</scanIntervalSeconds>
+                <scanTargets>
+                    <scanTarget>src/main/webapp/WEB-INF/web.xml</scanTarget>
+                </scanTargets>
+            </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

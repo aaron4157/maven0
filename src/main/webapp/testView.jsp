@@ -4,13 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>TEST PAGE</title>
+<title>Render this page</title>
 </head>
 <body>
 	<h1>做動作測試</h1>
 	<st:action name="msg"  executeResult="true">
 		<br>動作結果：
 	</st:action>
+	%{msg1}
 	
 </body>
 </html>

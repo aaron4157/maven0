@@ -3,25 +3,33 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
 	"http://struts.apache.org/dtds/struts-2.5.dtd">
 
-<!-- 配置說明:產生日誌; 註冊"hello" action 調用類別GreetAction.class; 回覆結果調用 GreetView.jsp-->
 <struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>	
 <!-- 	<constant name="struts.devMode" value="true"/> -->
-	<package name="idv.aaron4157.message" namespace="/" extends="struts-default">
-	<!-- /root -->
-		<action name="root">
+<!-- 註冊訊息actions GET路徑不是檔案路徑  -->
+	<package name="struts2.5" extends="struts-default">
+	<!-- /index -->
+        <action name="index">
             <result>/index.jsp</result>
         </action>
-	<!-- /hello?name=xxx -->
+        <!-- /hello?name=xxx -->
 		<action name="hello" class="idv.aaron4157.message.GreetAction" method="execute">
 			<result name="success">/greetView.jsp</result>
 			<result name="error">/index.jsp</result>
-		</action>
-	<!-- /mercury -->
-		<action name="mercury" class="idv.aaron4157.message.MyAction">
-			<result name="success">/rendering.jsp</result>
+    	</action>
+        
+    </package>
+	<package name="idv.aaron4157.message" namespace="/app" extends="struts-default">
+	<!-- /app/root -->
+		<action name="root">
+            <result>/testView.jsp</result>
+        </action>	
+	<!-- /app/page2 -->
+		<action name="page2" class="idv.aaron4157.message.MyAction">
+			<result name="success">/test2View.jsp</result>
 		</action>		
 	</package>
-	
+<!-- 這些action不建議直接GET -->	
 	<package name="idv.aaron4157.actiontags" extends="struts-default">
 		<action name="msg" class="idv.aaron4157.message.MyAction">
 			<result name="success">/rendering.jsp</result>

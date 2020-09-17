@@ -14,3 +14,4 @@ Struts action
 action class在struts.xml(POJO)或是annotation註冊(action/supportAction)，有兩種用法
 設定namespace作為網頁上層目錄的，透過query string或是form提交調用。namespace與真實資料夾結構不相關
 不設定namespace的，透過標籤<s: action>調用。做為渲染用途。
+問題：annotation註冊actions失敗，原因未知。

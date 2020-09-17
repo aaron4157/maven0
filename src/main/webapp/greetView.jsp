@@ -8,9 +8,9 @@
 <title>MY 1ST STRUTS WEBPAGE</title>
 </head>
 <body>	
-	<label>已註冊的Struts標籤集有 property函數去執行getName()</label><br/>
+	<label>已註冊的Struts標籤集: property函數 執行getName()</label><br>
 	Hello, <st:property value="name"/>
-	<br>
+	<br><label>EL 執行getName()</label><br>
 	Hello again, ${name}
 		
 	

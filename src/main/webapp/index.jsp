@@ -18,7 +18,7 @@
 	<h2>Hello World!</h2>
 	<br>
 	<form action="hello">
-		<label for="name">Please enter your name: </label><br/>
+		<label for="name">Sign in: </label><br/>
 		<input type="text" name="name"/>
 		<input type="submit" value="Go greeting!"/>
 	</form>

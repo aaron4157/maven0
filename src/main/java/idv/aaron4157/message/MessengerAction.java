@@ -1,5 +1,7 @@
 package idv.aaron4157.message;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.Result;
@@ -7,23 +9,19 @@ import org.apache.struts2.convention.annotation.ResultPath;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.opensymphony.xwork2.ActionSupport;
-
-import idv.aaron4157.database.CustomerDomain;
-
-@Namespace("/") //規定動作定址的上層目錄
+@Namespace("/") //訪問的上層目錄
 @ResultPath(value="/") //規定轉址的上層目錄 通常與namespace一樣
-public class MessengerAction {
-	private String msg1="initial";
+public class MessengerAction extends ActionSupport {
+	private String msg1="ini";
 	
 	public MessengerAction() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	//網址: /msg1
-	@Action(value="msg1", results= {
-			@Result(name="success", location="testView.jsp"),
-			@Result(name="fail", location="error.jsp")
+	//沒有網址: /msgs1
+	@Action(value="msgs1", results= {
+			@Result(name=SUCCESS, location="/rendering.jsp"),
+			@Result(name=ERROR, location="/error.jsp")
 	})
 	public String execute() {
 		//1.準備好工廠物件
@@ -32,17 +30,12 @@ public class MessengerAction {
 		IMsgDomain msgs =factory.getBean("message",IMsgDomain.class);
 		//3.呼叫功能 回傳結果設定Attribute
 		if(msgs!=null) {
-		//透過setter/getter進入Struts valueStack		
+		//透過setter/getter進入Struts value stack		
 			msg1 = msgs.header();
-			return "success";
+			return SUCCESS;
 		}else 
-			return "fail";
-	}
-	
-	public String doDefault() {
-		
-		return "done";
-	}
+			return ERROR;
+	}		
 
 	public String getMessage1() {
 		return msg1;
