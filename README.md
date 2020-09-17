@@ -1,5 +1,5 @@
 # maven0
- Struts framework on Maven
+ Java on Struts: a Maven project
 
 # FullStackDeveloping
 巨匠產學就業班課堂練習，有課程檔案與預習檔案。
@@ -7,7 +7,7 @@
 
 ## 專案大架構如下
 * web system 採用 Struts framework (一種MVC framework)
-* front end 採用 jQuery、OGNL與Struts EL技術
+* front end 採用 jQuery、EL與Struts tag技術
 * model 採用Spring framework 的 bean factory pattern
 * 重複使用的功能包裝成service 採用 Jersey framework (一種RESTful service)
 
@@ -16,5 +16,12 @@
 開發環境是 JRE8 
 
 ## 自行調整執行環境(Eclipse w/o MyEclipse)
-* 在Maven基礎上引入Struts框架：struts.xml, pom.xml, applicationContext.xml
+* 調適Maven dependencies: pom.xml
+* 在Maven基礎上引入Struts框架：struts.xml
+* 在Struts 基礎上引入Spring(MVC)框架：applicationContext.xml aka bean.xml
 * 編譯回報package import錯誤：檢查pom.xml的dependencies然後執行Maven update project
+
+## 待解決
+-[x] struts annotation
+-[x] log4j2 errors
+-[x] spring bean factory

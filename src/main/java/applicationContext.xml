@@ -8,7 +8,7 @@
 <!-- 	<context:component-scan base-package="idv.aaron4157.databse"></context:component-scan>  -->
 	<!-- Spring 框架 在這裡實現JDBCtemplate為一個bean工廠 -->
 	<!-- B0部屬一個domain 存放訊息 有需要在這裡切換對應-->
-	<bean id="message" class="idv.aaron4157.message.CHTMsgDomain"/>
+	<bean id="message" class="idv.aaron4157.message.WordDomain"/>
 	<!-- B1部署一個domain 給DAO操作 -->
 	<bean id="cust" class="idv.aaron4157.database.CustomerDomain"/>
 	<!-- B2部署DataSource物件on SQL server -->

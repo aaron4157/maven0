@@ -15,7 +15,6 @@ public class GreetAction {
 	}
 	
 	public String forward() {	
-		this.name = "ADMIN";
 		return "success";		
 	}
 	

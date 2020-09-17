@@ -25,15 +25,9 @@
             <result>/testView.jsp</result>
         </action>	
 	<!-- /app/page2 -->
-		<action name="page2" class="idv.aaron4157.message.MyAction">
+		<action name="page2" class="idv.aaron4157.message.GreetAction" method="forward">
 			<result name="success">/test2View.jsp</result>
 		</action>		
-	</package>
-<!-- 這些action不建議直接GET -->	
-	<package name="idv.aaron4157.actiontags" extends="struts-default">
-		<action name="msg" class="idv.aaron4157.message.MyAction">
-			<result name="success">/rendering.jsp</result>
-		</action>
 	</package>
 	
 </struts>
