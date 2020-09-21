@@ -8,6 +8,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @Namespace("/") //訪問的上層目錄
 @ResultPath(value="/") //規定轉址的上層目錄 通常與namespace一樣
@@ -18,8 +19,8 @@ public class MessengerAction extends ActionSupport {
 		// TODO Auto-generated constructor stub
 	}
 	
-	//沒有網址: /msgs1
-	@Action(value="msgs1", results= {
+	//定址/dao1.action
+	@Action(value="dao1", results= {
 			@Result(name=SUCCESS, location="/rendering.jsp"),
 			@Result(name=ERROR, location="/error.jsp")
 	})
@@ -27,11 +28,12 @@ public class MessengerAction extends ActionSupport {
 		//1.準備好工廠物件
 		ApplicationContext factory=new ClassPathXmlApplicationContext("applicationContext.xml");
 		//2.去跟工廠下單一個message物件 解析為MsgDomain類別(規格書)
-		IMsgDomain msgs =factory.getBean("message",IMsgDomain.class);
+		IMsg msgs =factory.getBean("message",IMsg.class);
+		JdbcTemplate jdbc = factory.getBean("jdbc", JdbcTemplate.class);
 		//3.呼叫功能 回傳結果設定Attribute
 		if(msgs!=null) {
 		//透過setter/getter進入Struts value stack		
-			msg1 = msgs.header();
+			msg1=msgs.header();
 			return SUCCESS;
 		}else 
 			return ERROR;

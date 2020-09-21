@@ -10,8 +10,6 @@
 	<h1>做動作測試</h1>
 	<st:action name="msg"  executeResult="true">
 		<br>動作結果：
-	</st:action>
-	%{msg1}
-	
+	</st:action>		
 </body>
 </html>

@@ -1,10 +1,9 @@
 package idv.aaron4157.message;
+/**
+ * 中文化
+ * */
 
-public class CHTMsgDomain implements IMsgDomain {
-
-	public CHTMsgDomain() {
-		// TODO Auto-generated constructor stub
-	}
+public class CHTMsg implements IMsg {
 
 	@Override
 	public String header() {

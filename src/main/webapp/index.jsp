@@ -17,7 +17,7 @@
 <body>
 	<h2>Hello World!</h2>
 	<br>
-	<form action="hello">
+	<form action="hello.action">
 		<label for="name">Sign in: </label><br/>
 		<input type="text" name="name"/>
 		<input type="submit" value="Go greeting!"/>

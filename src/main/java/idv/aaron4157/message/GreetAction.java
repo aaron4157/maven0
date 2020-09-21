@@ -7,15 +7,26 @@ package idv.aaron4157.message;
  *
  */
 public class GreetAction {
+	private IMsg msgBean; 
+	
 	private String name;
+	private String msg;
 	
 	public String execute() {
 		if(this.name.isEmpty()) return "error";
 		else return "success";
 	}
 	
-	public String forward() {	
-		return "success";		
+	public String forward() {
+		if(this.msgBean!=null) {
+			setMsg(msgBean.header());
+		}
+		else {
+			setMsg("~~not found~~");
+			
+		}
+		return "success";
+
 	}
 	
 	//透過setter/getter進入Struts valueStack
@@ -25,6 +36,14 @@ public class GreetAction {
 
 	public void setName(String name) {
 		this.name = name.toLowerCase();
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 	
 }

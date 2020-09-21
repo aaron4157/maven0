@@ -21,12 +21,14 @@
 1. <img src="struts25-2.png" height="510" alt="Step2">
 
 ## Actions in Struts
-* POJO或 extends ActionSupport 在 struts.xml註冊
+* POJO或 ActionSupport subclasses在 struts.xml註冊
 * 或使用org.apache.struts2.convention.annotation 的註解方式註冊
 * 所有actions都可以由網址定向(get-able) ex MyAction.java, namespace="/app", name="acc"
-	* call name="app/acc"
-	* /app/acc
+* v2.5為與Spring兼容，將網址做分支處理，使用時需要後綴".action"
+	* call name="app/acc.action"
+	* /app/acc.action
 	* /app/my.action
+* 沒有註冊的"編外"成員通通返回welcome file
 
 ## 資料來源
 * [參考資料1](http://tw.gitbook.net/struts_2/struts2_quick_guide.html)

@@ -4,24 +4,30 @@
 	"http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>	
-<!-- 	<constant name="struts.devMode" value="true"/> -->
-<!-- 註冊訊息actions GET路徑不是檔案路徑  -->
+	<!-- 允許調用非預設方法 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <!-- 開發者模式ON -->	
+	<constant name="struts.devMode" value="true"/>
+
 	<package name="struts2.5" extends="struts-default">
-	<!-- /index -->
+	<!-- /index.action -->
         <action name="index">
             <result>/index.jsp</result>
         </action>
-        <!-- /hello?name=xxx -->
+    <!-- /hello.action?name=xxx -->
 		<action name="hello" class="idv.aaron4157.message.GreetAction" method="execute">
 			<result name="success">/greetView.jsp</result>
 			<result name="error">/index.jsp</result>
     	</action>
-        
+   	<!-- /msg -->
+        <action name="msg">
+        	<result>/rendering.jsp</result>
+        </action>
     </package>
+    
 	<package name="idv.aaron4157.message" namespace="/app" extends="struts-default">
-	<!-- /app/root -->
-		<action name="root">
+	<!-- /app/page1 -->
+		<action name="page1">
             <result>/testView.jsp</result>
         </action>	
 	<!-- /app/page2 -->
@@ -29,5 +35,14 @@
 			<result name="success">/test2View.jsp</result>
 		</action>		
 	</package>
+<!-- spring field -->
+	<!-- /cdao.action -->
+	<package name="spring4.1.0" namespace="/spring" extends="struts-default">
+		<action name="cdao" class="idv.aaron4157.database.CustomerAction">
+			<result name="success">queryView.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+	</package>
+	<!-- spring bean 是方法集合 與java bean不同  -->
 	
 </struts>
