@@ -20,8 +20,7 @@
 * 在Maven基礎上引入Struts框架：struts.xml
 * 在Struts 基礎上引入Spring(MVC)框架：applicationContext.xml aka bean.xml
 * 編譯回報package import錯誤：檢查pom.xml的dependencies然後執行Maven update project
+* JDBC Driver ex mssql-jdbc 儘量使用最新版，配合JRE版號 
 
 ## 待解決
--[x] struts annotation
--[x] log4j2 errors
--[x] spring bean factory
+-[x] struts and spring annotation
